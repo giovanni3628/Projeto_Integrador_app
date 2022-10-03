@@ -26,20 +26,17 @@ class FeedFragment : Fragment() {
             Postagem(
                 "ajuda",
                 "Giovanni",
+                "1000,00",
                 "aaaaaaaaaaaa",
-                10000.00,
-                "Preciso de ajuda para comprar medicamentos",
-                "2022-09-27",
                 "Medicamentos",
             ),
             Postagem(
                 "Cirurgia",
                 "João Da Silva",
-                "bbbbbbbbbbbbb",
-                5000.00,
-                "Preciso de ajuda para fazer uma cirurgia no joelho",
-                "2022-07-30",
+                "1000,00",
+                "BBBBBBBBB",
                 "Cirurgia",
+
             ),
         )
 
