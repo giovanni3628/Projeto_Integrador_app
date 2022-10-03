@@ -4,9 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.248" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2729806518554688" />
-        <entry key="app/src/main/res/layout/card_feed.xml" value="0.22826086956521738" />
-        <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13293151855468752" />
+        <entry key="app/src/main/res/layout/card_feed.xml" value="0.2099099099099099" />
+        <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2099099099099099" />
         <entry key="app/src/main/res/layout/fragment_postagem.xml" value="0.24270833333333333" />
       </map>
     </option>
@@ -20,7 +20,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2729806518554688" />
+        <option name="scale" value="0.13293151855468752" />
       </ProjectState>
     </option>
   </component>
