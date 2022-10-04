@@ -2,11 +2,13 @@ package com.example.prototipo_app
 
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.prototipo_app.databinding.FragmentPostagemBinding
 import com.example.prototipo_app.model.Postagem
@@ -15,6 +17,7 @@ import com.example.prototipo_app.model.Postagem
 class PostagemFragment : Fragment() {
 
     private lateinit var binding: FragmentPostagemBinding
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +25,11 @@ class PostagemFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentPostagemBinding.inflate(layoutInflater, container, false)
+
+        mainViewModel.listCategoria()
+        mainViewModel.myCategoriaResponse.observe(viewLifecycleOwner){
+            response -> Log.d("requisicao", response.body().toString())
+        }
 
         binding.buttonPostar.setOnClickListener {
             inserirNoBanco()
