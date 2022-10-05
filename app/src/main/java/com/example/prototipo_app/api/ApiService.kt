@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @GET("/tema")
+    @GET("tema")
     suspend fun listCategoria(): Response<List<Categoria>>
 
     @GET("postagem")

@@ -23,7 +23,7 @@ class PostagemAdapter : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>
         val postagem = listPostagem[position]
             holder.binding.tvTitulo.text = postagem.titulo
             holder.binding.tvMeta.text = postagem.meta.toString()
-            holder.binding.tvCategoria.text = postagem.categoria
+            holder.binding.tvCategoria.text = postagem.tema.tema
 
     }
 

@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.prototipo_app.databinding.FragmentPostagemBinding
+import com.example.prototipo_app.model.Categoria
 import com.example.prototipo_app.model.Postagem
 
 
@@ -18,6 +21,7 @@ class PostagemFragment : Fragment() {
 
     private lateinit var binding: FragmentPostagemBinding
     private val mainViewModel: MainViewModel by activityViewModels()
+    private var categoriaSelecionada = 0L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +33,7 @@ class PostagemFragment : Fragment() {
         mainViewModel.listCategoria()
         mainViewModel.myCategoriaResponse.observe(viewLifecycleOwner){
             response -> Log.d("requisicao", response.body().toString())
+            spinnerCategoria(response.body())
         }
 
         binding.buttonPostar.setOnClickListener {
@@ -37,6 +42,32 @@ class PostagemFragment : Fragment() {
 
         return binding.root
     }
+
+    fun spinnerCategoria (listCategoria: List<Categoria>?){
+        if (listCategoria != null){
+            binding.SpinnerCategoria.adapter =
+                ArrayAdapter(
+                    requireContext(),
+                    androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                    listCategoria
+                )
+            binding.SpinnerCategoria.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener{
+                    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                        val selected = binding.SpinnerCategoria.selectedItem as Categoria
+
+                        categoriaSelecionada = selected.id
+                    }
+
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+                        TODO("Not yet implemented")
+                    }
+
+                }
+        }
+
+    }
+
     private fun validarCampos(
         titulo: String,
         descricao: String,
@@ -53,10 +84,11 @@ class PostagemFragment : Fragment() {
         val link = binding.textLink.text.toString()
         val descricao = binding.textDescricao.text.toString()
         val meta = binding.textMeta.text.toString()
-        val categoria = binding.SpinnerCategoria.toString()
+        val categoria = Categoria(categoriaSelecionada, null, null, null)
 
         if (validarCampos(titulo, descricao, meta)){
             val postagem = Postagem(titulo, link, meta, descricao, categoria)
+            mainViewModel.addPostagem(postagem)
             Toast.makeText(context, "Postagem criada!", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_postagemFragment_to_feedFragment)
 

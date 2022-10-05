@@ -26,7 +26,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#FFFFFF"
-        android:entries="@array/Categoria"
+        android:theme="@style/Spinner"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
@@ -42,6 +42,7 @@
         android:ems="10"
         android:hint="Título"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descrição"
+            android:textColor="@color/white"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,6 +121,7 @@
             android:hint="Meta em R$"
             android:inputType="number"
             android:shadowColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,6 +134,7 @@
         android:ems="10"
         android:hint="Link da Imagem"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
