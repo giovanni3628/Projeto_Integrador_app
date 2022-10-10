@@ -2,10 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CardContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
     android:backgroundTint="#E2E6AA"
+    android:clickable="false"
     app:cardCornerRadius="50dp"
     app:cardElevation="10dp">
 
@@ -15,7 +17,7 @@
         android:focusable="true">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/cardShare"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
@@ -61,7 +63,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="24dp"
-                app:srcCompat="@drawable/heart" />
+                app:srcCompat="@drawable/ic_baseline_monetization_on_24" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,6 +154,18 @@
             app:layout_constraintStart_toEndOf="@+id/link_imagem"
             app:layout_constraintTop_toBottomOf="@+id/tvMeta"
             tools:text="Categoria" />
+
+        <Button
+            android:id="@+id/btInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_info_24"
+            android:text="Info"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardShare"
+            app:layout_constraintEnd_toEndOf="@+id/tvCategoria"
+            app:layout_constraintStart_toStartOf="@+id/tvCategoria"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategoria" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
