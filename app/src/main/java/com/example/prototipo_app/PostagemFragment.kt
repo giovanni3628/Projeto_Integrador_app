@@ -77,7 +77,7 @@ class PostagemFragment : Fragment() {
         meta: String,
     ): Boolean{
         return !(
-                (titulo == "" || titulo.length < 3 || titulo.length > 20) ||
+                (titulo == "" || titulo.length < 3 || titulo.length > 50) ||
                         (descricao == "" || descricao.length < 10 || descricao.length > 250) ||
                         (meta == "" || meta.isEmpty())
                 )
