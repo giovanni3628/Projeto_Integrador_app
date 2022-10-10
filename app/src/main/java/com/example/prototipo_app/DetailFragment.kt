@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
 import com.example.prototipo_app.adapter.PostagemAdapter
 import com.example.prototipo_app.databinding.FragmentDetailBinding
 import com.example.prototipo_app.model.Postagem
@@ -38,6 +39,8 @@ class DetailFragment : Fragment() {
             binding.txtDescricao.setText(postagemSelecionada?.descricao)
             binding.txtMeta.setText("Meta R$: " + postagemSelecionada?.meta?.toInt())
             binding.txtTema.setText(postagemSelecionada?.tema?.tema)
+
+            Glide.with(this).load(postagemSelecionada!!.imagem).into(binding.imgPostagem)
 
             binding.progressBar.progress = 65
         }
