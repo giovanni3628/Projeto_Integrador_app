@@ -1,6 +1,6 @@
 package com.example.prototipo_app.model
 
- data class Categoria (
+ data class Tema (
     var id: Long,
     var tema: String?,
     var descricao: String?,

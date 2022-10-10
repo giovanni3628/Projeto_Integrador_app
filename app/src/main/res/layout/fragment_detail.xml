@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imgPessoa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/grandmother" />
@@ -61,7 +61,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/txtTema"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -71,7 +71,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/txtMeta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -87,14 +87,15 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="80dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -112,9 +113,9 @@
             app:cardCornerRadius="30dp">
 
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="280dp"
-                android:layout_height="280dp"
+                android:id="@+id/imgPostagem"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:adjustViewBounds="false"
                 android:cropToPadding="false"
@@ -123,7 +124,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/txtDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -133,36 +134,39 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintStart_toStartOf="parent">
+
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardShare"
+            android:id="@+id/cardComentarios"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="16dp"
             android:background="#00A85D"
             android:backgroundTint="#00A85D"
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView3">
-
+            app:layout_constraintEnd_toStartOf="@+id/cardDonation"
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
-                android:layout_width="25sp"
-                android:layout_height="25sp"
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="24dp"
-                app:srcCompat="@drawable/share" />
+                app:srcCompat="@drawable/ic_baseline_message_24" />
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -174,10 +178,10 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
+            android:id="@+id/cardDonation"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
+            android:layout_margin="16dp"
             android:background="#00A85D"
             android:backgroundTint="#00A85D"
             app:cardCornerRadius="25dp"
@@ -204,26 +208,27 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardShare"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="20dp"
             android:background="#00A85D"
             android:backgroundTint="#00A85D"
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView3"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardDonation">
+
 
             <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25sp"
+                android:layout_height="25sp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="24dp"
-                app:srcCompat="@drawable/ic_baseline_message_24" />
+                app:srcCompat="@drawable/share" />
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.prototipo_app.api.Repository
-import com.example.prototipo_app.model.Categoria
+import com.example.prototipo_app.model.Tema
 import com.example.prototipo_app.model.Postagem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -22,9 +22,9 @@ class MainViewModel @Inject constructor(
     var postagemSelecionada: Postagem? = null
 
     private val _myCategoriaResponse =
-        MutableLiveData<Response<List<Categoria>>>()
+        MutableLiveData<Response<List<Tema>>>()
 
-    val myCategoriaResponse : LiveData<Response<List<Categoria>>> =
+    val myCategoriaResponse : LiveData<Response<List<Tema>>> =
         _myCategoriaResponse
 
     private val _myPostagemResponse =

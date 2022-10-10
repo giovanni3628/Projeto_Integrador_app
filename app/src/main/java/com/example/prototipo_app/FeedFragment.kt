@@ -6,17 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.prototipo_app.adapter.DetailClickListener
 import com.example.prototipo_app.adapter.PostagemAdapter
 import com.example.prototipo_app.adapter.TaskClickListener
 import com.example.prototipo_app.databinding.FragmentFeedBinding
 import com.example.prototipo_app.model.Postagem
 
-class FeedFragment : Fragment(), DetailClickListener {
 
 class FeedFragment : Fragment(), TaskClickListener {
 
@@ -35,9 +32,7 @@ class FeedFragment : Fragment(), TaskClickListener {
         mainViewModel.listPostagem()
 
 
-        val adapter = PostagemAdapter(this, mainViewModel)
-
-        val adapter = PostagemAdapter(this, mainViewModel, requireContext())
+        val adapter = PostagemAdapter(this)
 
         binding.recyclerPostagem.layoutManager = LinearLayoutManager(context)
         binding.recyclerPostagem.adapter = adapter
@@ -58,11 +53,7 @@ class FeedFragment : Fragment(), TaskClickListener {
         return binding.root
     }
 
-
-    override fun onTaskClickListener() {
-        findNavController().navigate(R.id.action_feedFragment_to_detailFragment)
-    }
-
+    // compartilha a postagem com app fora
     override fun onClickShare() {
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
@@ -74,10 +65,16 @@ class FeedFragment : Fragment(), TaskClickListener {
     }
 
 
-
-    override fun onTaskClickListener(postagem: Postagem){
+    // edita postagem clicada
+    override fun onTaskClickListener(postagem: Postagem) {
         mainViewModel.postagemSelecionada = postagem
         findNavController().navigate(R.id.action_feedFragment_to_postagemFragment)
+    }
+
+    // mostra infos da postagem clicada
+    override fun onDetailClick(postagem: Postagem) {
+        mainViewModel.postagemSelecionada = postagem
+        findNavController().navigate(R.id.action_feedFragment_to_detailFragment)
     }
 
 }

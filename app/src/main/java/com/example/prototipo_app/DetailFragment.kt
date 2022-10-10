@@ -1,5 +1,6 @@
 package com.example.prototipo_app
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.prototipo_app.adapter.PostagemAdapter
 import com.example.prototipo_app.databinding.FragmentDetailBinding
+import com.example.prototipo_app.model.Postagem
 
 class DetailFragment : Fragment() {
 
@@ -15,6 +17,7 @@ class DetailFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by activityViewModels()
 
+    private var postagemSelecionada: Postagem? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -22,10 +25,21 @@ class DetailFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
 
-        val mAdapter: PostagemAdapter
-
-
+        carregarDados()
 
         return binding.root
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun carregarDados() {
+        postagemSelecionada = mainViewModel.postagemSelecionada
+        if (postagemSelecionada != null) {
+            binding.txtTitulo.setText(postagemSelecionada?.titulo)
+            binding.txtDescricao.setText(postagemSelecionada?.descricao)
+            binding.txtMeta.setText("Meta R$: " + postagemSelecionada?.meta?.toInt())
+            binding.txtTema.setText(postagemSelecionada?.tema?.tema)
+
+            binding.progressBar.progress = 65
+        }
     }
 }

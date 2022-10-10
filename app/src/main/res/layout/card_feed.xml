@@ -26,7 +26,7 @@
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView3">
+            app:layout_constraintStart_toEndOf="@+id/cardDonation">
 
             <ImageView
                 android:layout_width="25sp"
@@ -47,7 +47,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
+            android:id="@+id/cardDonation"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
@@ -84,7 +84,7 @@
             android:backgroundTint="#00A85D"
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView3"
+            app:layout_constraintEnd_toStartOf="@+id/cardDonation"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView

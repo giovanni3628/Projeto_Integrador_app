@@ -1,29 +1,16 @@
 package com.example.prototipo_app.adapter
 
-import android.content.Intent
-
-import android.content.Context
+import android.annotation.SuppressLint
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.prototipo_app.MainViewModel
 import com.example.prototipo_app.databinding.CardFeedBinding
 import com.example.prototipo_app.model.Postagem
 
-
-
 class PostagemAdapter(
-    val detailClickListener: DetailClickListener,
-    val mainViewModel: MainViewModel
-) : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
-
-class PostagemAdapter (
     val taskClickListener: TaskClickListener,
-    val mainViewModel: MainViewModel,
-    val context: Context,
-        ) : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder> () {
+) : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
 
 
     private var listPostagem = emptyList<Postagem>()
@@ -37,26 +24,29 @@ class PostagemAdapter (
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PostagemViewHolder, position: Int) {
         val postagem = listPostagem[position]
         holder.binding.tvTitulo.text = postagem.titulo
         holder.binding.tvMeta.text = "Meta: R$" + postagem.meta.toString()
-        holder.binding.tvCategoria.text = "Categoria:" + postagem.tema.tema
+        holder.binding.tvCategoria.text = postagem.tema.tema
+
+
+        
 
         // Teste Samuel & Henrique - Tela Detalhes ----
 
-
         holder.binding.btInfo.setOnClickListener {
-            detailClickListener.onTaskClickListener()
+            taskClickListener.onDetailClick(postagem)
         }
 
         holder.binding.cardShare.setOnClickListener {
-            detailClickListener.onClickShare()
+            taskClickListener.onClickShare()
         }
 
-            holder.itemView.setOnClickListener {
-                taskClickListener.onTaskClickListener(postagem)
-            }
+        holder.itemView.setOnClickListener {
+            taskClickListener.onTaskClickListener(postagem)
+        }
 
 
     }
