@@ -21,6 +21,7 @@ class PostagemFragment : Fragment() {
     private lateinit var binding: FragmentPostagemBinding
     private val mainViewModel: MainViewModel by activityViewModels()
     private var categoriaSelecionada = 0L
+    private var postagemSelecionada: Postagem? = null
 
     private var postagemSelecionada: Postagem? = null
 
@@ -30,6 +31,8 @@ class PostagemFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentPostagemBinding.inflate(layoutInflater, container, false)
+
+        carregarDados()
 
         mainViewModel.listCategoria()
         mainViewModel.myCategoriaResponse.observe(viewLifecycleOwner){
@@ -88,15 +91,32 @@ class PostagemFragment : Fragment() {
         val categoria = Categoria(categoriaSelecionada, null, null, null)
 
         if (validarCampos(titulo, descricao, meta)){
-            val postagem = Postagem(titulo, link, meta, descricao, categoria)
-            mainViewModel.addPostagem(postagem)
-            Toast.makeText(context, "Postagem criada!", Toast.LENGTH_SHORT).show()
+            val salvar: String
+
+            if (postagemSelecionada != null){
+                salvar = "Postagem Atualizada!"
+                val postagem = Postagem(postagemSelecionada?.id!!,titulo, link, meta, descricao, categoria)
+                mainViewModel.updatePostagem(postagem)
+            }else{
+                salvar = "Postagem Criada!"
+                val postagem = Postagem(0,titulo, link, meta, descricao, categoria)
+                mainViewModel.addPostagem(postagem)
+            }
+            Toast.makeText(context, salvar, Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_postagemFragment_to_feedFragment)
 
         }else{
             Toast.makeText(context, "Verifique os campos!", Toast.LENGTH_SHORT).show()
         }
-
+    }
+    private fun carregarDados(){
+        postagemSelecionada = mainViewModel.postagemSelecionada
+        if (postagemSelecionada != null){
+            binding.TextTitulo.setText(postagemSelecionada?.titulo)
+            binding.textDescricao.setText(postagemSelecionada?.descricao)
+            binding.textLink.setText(postagemSelecionada?.imagem)
+            binding.textMeta.setText(postagemSelecionada?.meta)
+        }
     }
 
 
