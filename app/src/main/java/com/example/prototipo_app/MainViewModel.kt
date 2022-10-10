@@ -19,6 +19,8 @@ class MainViewModel @Inject constructor(
     private val repository: Repository
 ): ViewModel() {
 
+    var postagemSelecionada: Postagem? = null
+
     private val _myCategoriaResponse =
         MutableLiveData<Response<List<Categoria>>>()
 

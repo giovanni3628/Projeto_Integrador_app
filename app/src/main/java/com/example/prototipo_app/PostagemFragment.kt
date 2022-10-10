@@ -1,7 +1,6 @@
 package com.example.prototipo_app
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +21,8 @@ class PostagemFragment : Fragment() {
     private lateinit var binding: FragmentPostagemBinding
     private val mainViewModel: MainViewModel by activityViewModels()
     private var categoriaSelecionada = 0L
+
+    private var postagemSelecionada: Postagem? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -97,4 +98,6 @@ class PostagemFragment : Fragment() {
         }
 
     }
+
+
 }
