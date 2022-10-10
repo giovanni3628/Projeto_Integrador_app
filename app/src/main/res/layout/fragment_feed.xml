@@ -8,84 +8,52 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonCriar3"
-        android:layout_width="80dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="350dp"
-        android:layout_marginBottom="30dp"
-        android:clickable="true"
-        android:scaleType="matrix"
-        app:backgroundTint="#00A85D"
-        app:fabCustomSize="80dp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:maxImageSize="40dp"
-        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="bottom"
-        android:backgroundTint="#067D48"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPostagem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/card_feed" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerPostagem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#067D48"
+                app:menu="@menu/bottom_menu">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                app:srcCompat="@drawable/ic_baseline_home_24" />
-
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                app:srcCompat="@drawable/ic_baseline_message_20" />
-
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="130dp"
-                android:backgroundTint="@color/black"
-                app:srcCompat="@drawable/opa_removebg_preview" />
-
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
-                app:srcCompat="@drawable/conta" />
-
-
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonCriar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:scaleType="matrix"
+            android:src="@drawable/ic_baseline_add_24"
+            app:backgroundTint="#00A85D"
+            app:fabCustomSize="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:maxImageSize="40dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPostagem"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/card_feed" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

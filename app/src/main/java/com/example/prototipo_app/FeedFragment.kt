@@ -31,7 +31,7 @@ class FeedFragment : Fragment() {
         binding.recyclerPostagem.adapter = adapter
         binding.recyclerPostagem.setHasFixedSize(true)
 
-        binding.buttonCriar3.setOnClickListener {
+        binding.buttonCriar.setOnClickListener {
             findNavController().navigate(R.id.action_feedFragment_to_postagemFragment)
         }
 
