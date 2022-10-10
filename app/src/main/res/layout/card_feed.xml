@@ -108,7 +108,7 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/link_imagem"
+            android:id="@+id/imgLink"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_margin="40dp"
@@ -123,10 +123,10 @@
             android:layout_marginTop="40dp"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/link_imagem"
+            app:layout_constraintStart_toEndOf="@+id/imgLink"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Titulo" />
 
@@ -138,7 +138,7 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/link_imagem"
+            app:layout_constraintStart_toEndOf="@+id/imgLink"
             app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
             tools:text="Meta R$:" />
 
@@ -151,7 +151,7 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/link_imagem"
+            app:layout_constraintStart_toEndOf="@+id/imgLink"
             app:layout_constraintTop_toBottomOf="@+id/tvMeta"
             tools:text="Categoria" />
 
