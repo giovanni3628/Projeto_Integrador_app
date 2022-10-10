@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.prototipo_app.databinding.CardFeedBinding
 import com.example.prototipo_app.model.Postagem
 
@@ -26,13 +27,15 @@ class PostagemAdapter(
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: PostagemViewHolder, position: Int) {
+        val context = holder.itemView.context
         val postagem = listPostagem[position]
         holder.binding.tvTitulo.text = postagem.titulo
         holder.binding.tvMeta.text = "Meta: R$" + postagem.meta.toString()
         holder.binding.tvCategoria.text = postagem.tema.tema
 
 
-        
+        Glide.with(context).load(postagem.imagem).into(holder.binding.imgLink)
+
 
         // Teste Samuel & Henrique - Tela Detalhes ----
 
