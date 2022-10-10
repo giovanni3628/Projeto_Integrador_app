@@ -11,13 +11,15 @@ import com.example.prototipo_app.model.Postagem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import java.lang.Exception
 import javax.inject.Inject
+import kotlin.Exception
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: Repository
 ): ViewModel() {
+
+    var postagemSelecionada: Postagem? = null
 
     private val _myCategoriaResponse =
         MutableLiveData<Response<List<Categoria>>>()
@@ -60,6 +62,17 @@ class MainViewModel @Inject constructor(
                 val response = repository.listCategoria()
                 _myCategoriaResponse.value = response
 
+            }catch (e: Exception){
+                Log.d("Erro", e.message.toString())
+            }
+        }
+    }
+
+    fun updatePostagem(postagem: Postagem){
+        viewModelScope.launch {
+            try {
+                repository.updatePostagem(postagem)
+                listPostagem()
             }catch (e: Exception){
                 Log.d("Erro", e.message.toString())
             }

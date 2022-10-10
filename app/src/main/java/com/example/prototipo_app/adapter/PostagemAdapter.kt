@@ -1,12 +1,19 @@
 package com.example.prototipo_app.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.prototipo_app.MainViewModel
 import com.example.prototipo_app.databinding.CardFeedBinding
 import com.example.prototipo_app.model.Postagem
 
-class PostagemAdapter : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder> () {
+class PostagemAdapter (
+    val taskClickListener: TaskClickListener,
+    val mainViewModel: MainViewModel,
+    val context: Context,
+        ) : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder> () {
 
     private var listPostagem = emptyList<Postagem>()
 
@@ -24,6 +31,10 @@ class PostagemAdapter : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>
             holder.binding.tvTitulo.text = postagem.titulo
             holder.binding.tvMeta.text = postagem.meta.toString()
             holder.binding.tvCategoria.text = postagem.tema.tema
+
+            holder.itemView.setOnClickListener {
+                taskClickListener.onTaskClickListener(postagem)
+            }
 
     }
 
