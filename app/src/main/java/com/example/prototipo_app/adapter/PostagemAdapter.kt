@@ -1,5 +1,6 @@
 package com.example.prototipo_app.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -35,7 +36,6 @@ class PostagemAdapter (
             holder.itemView.setOnClickListener {
                 taskClickListener.onTaskClickListener(postagem)
             }
-
     }
 
     override fun getItemCount(): Int {
@@ -45,5 +45,17 @@ class PostagemAdapter (
     fun setList(list: List<Postagem>){
         listPostagem = list
         notifyDataSetChanged()
+    }
+
+    private fun showAlertDialog(id: Long){
+        AlertDialog.Builder(context)
+            .setTitle("Excluir Postagem")
+            .setMessage("Deseja excluir a postagem?")
+            .setPositiveButton("Sim"){
+                    _,_ -> mainViewModel.deletePostagem(id)
+            }
+            .setNegativeButton("Não"){
+                    _,_ ->
+            }.show()
     }
 }
