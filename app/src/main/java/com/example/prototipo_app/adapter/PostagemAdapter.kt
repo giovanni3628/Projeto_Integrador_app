@@ -2,6 +2,9 @@ package com.example.prototipo_app.adapter
 
 import android.annotation.SuppressLint
 
+
+import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -52,6 +55,9 @@ class PostagemAdapter(
         }
 
 
+            holder.itemView.setOnClickListener {
+                taskClickListener.onTaskClickListener(postagem)
+            }
     }
 
     override fun getItemCount(): Int {
@@ -63,4 +69,16 @@ class PostagemAdapter(
         notifyDataSetChanged()
     }
 
+
+    private fun showAlertDialog(id: Long){
+        AlertDialog.Builder(context)
+            .setTitle("Excluir Postagem")
+            .setMessage("Deseja excluir a postagem?")
+            .setPositiveButton("Sim"){
+                    _,_ -> mainViewModel.deletePostagem(id)
+            }
+            .setNegativeButton("Não"){
+                    _,_ ->
+            }.show()
+    }
 }
