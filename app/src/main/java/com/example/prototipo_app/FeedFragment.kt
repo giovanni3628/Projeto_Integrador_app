@@ -57,7 +57,7 @@ class FeedFragment : Fragment(), TaskClickListener {
     override fun onClickShare() {
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, "Aobaaaaa Teste")
+            putExtra(Intent.EXTRA_TEXT, "https://github.com/giovanni3628/Projeto_Integrador_app")
             type = "text/plain"
         }
         val shareIntent = Intent.createChooser(sendIntent, null)

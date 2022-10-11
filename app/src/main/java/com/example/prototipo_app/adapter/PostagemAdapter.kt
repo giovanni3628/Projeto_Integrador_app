@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.prototipo_app.MainViewModel
+import com.example.prototipo_app.R
 import com.example.prototipo_app.databinding.CardFeedBinding
 import com.example.prototipo_app.model.Postagem
 
@@ -36,11 +37,11 @@ class PostagemAdapter(
         val context = holder.itemView.context
         val postagem = listPostagem[position]
         holder.binding.tvTitulo.text = postagem.titulo
-        holder.binding.tvMeta.text = "Meta: R$" + postagem.meta.toString()
+        holder.binding.tvMeta.text = "Meta: R$" + postagem.meta + ",00"
         holder.binding.tvCategoria.text = postagem.tema.tema
 
 
-        Glide.with(context).load(postagem.imagem).into(holder.binding.imgLink)
+        Glide.with(context).load(postagem.imagem).placeholder(R.drawable.grandmother).into(holder.binding.imgLink)
 
 
         // Teste Samuel & Henrique - Tela Detalhes ----
@@ -58,9 +59,9 @@ class PostagemAdapter(
         }
 
 
-            holder.itemView.setOnClickListener {
-                taskClickListener.onTaskClickListener(postagem)
-            }
+        holder.itemView.setOnClickListener {
+            taskClickListener.onTaskClickListener(postagem)
+        }
 
         holder.binding.buttonDeletar.setOnClickListener {
             showAlertDialog(postagem.id)
@@ -77,15 +78,14 @@ class PostagemAdapter(
     }
 
 
-    private fun showAlertDialog(id: Long){
+    private fun showAlertDialog(id: Long) {
         AlertDialog.Builder(context)
             .setTitle("Excluir Postagem")
             .setMessage("Deseja excluir a postagem?")
-            .setPositiveButton("Sim"){
-                    _,_ -> mainViewModel.deletePostagem(id)
+            .setPositiveButton("Sim") { _, _ ->
+                mainViewModel.deletePostagem(id)
             }
-            .setNegativeButton("Não"){
-                    _,_ ->
+            .setNegativeButton("Não") { _, _ ->
             }.show()
     }
 }
