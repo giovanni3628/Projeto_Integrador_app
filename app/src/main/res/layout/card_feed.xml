@@ -2,10 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CardContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
     android:backgroundTint="#E2E6AA"
+    android:clickable="false"
     app:cardCornerRadius="50dp"
     app:cardElevation="10dp">
 
@@ -15,7 +17,7 @@
         android:focusable="true">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/cardShare"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
@@ -24,7 +26,7 @@
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cardView3">
+            app:layout_constraintStart_toEndOf="@+id/cardDonation">
 
             <ImageView
                 android:layout_width="25sp"
@@ -45,7 +47,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView3"
+            android:id="@+id/cardDonation"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
@@ -61,7 +63,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="24dp"
-                app:srcCompat="@drawable/heart" />
+                app:srcCompat="@drawable/ic_baseline_monetization_on_24" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,7 +84,7 @@
             android:backgroundTint="#00A85D"
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView3"
+            app:layout_constraintEnd_toStartOf="@+id/cardDonation"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
@@ -106,10 +108,11 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/link_imagem"
+            android:id="@+id/imgLink"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_margin="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="68dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/grandmother" />
@@ -118,13 +121,15 @@
             android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:padding="5dp"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/link_imagem"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Titulo" />
 
@@ -132,26 +137,50 @@
             android:id="@+id/tvMeta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="72dp"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/link_imagem"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toEndOf="@+id/imgLink"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Meta R$:" />
 
         <TextView
             android:id="@+id/tvCategoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="24dp"
             android:textAllCaps="false"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/link_imagem"
+            app:layout_constraintStart_toEndOf="@+id/imgLink"
             app:layout_constraintTop_toBottomOf="@+id/tvMeta"
             tools:text="Categoria" />
+
+        <Button
+            android:id="@+id/btInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableRight="@drawable/ic_baseline_info_24"
+            android:text="Info"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardShare"
+            app:layout_constraintEnd_toEndOf="@+id/tvCategoria"
+            app:layout_constraintStart_toStartOf="@+id/tvCategoria"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategoria" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:progress="15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgLink"
+            app:layout_constraintTop_toBottomOf="@+id/tvMeta" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

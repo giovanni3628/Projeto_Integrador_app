@@ -6,5 +6,5 @@ data class Postagem (
     var imagem: String,
     var meta: String,
     var descricao: String,
-    var tema: Categoria
+    var tema: Tema
 ){ }

@@ -1,7 +1,6 @@
 package com.example.prototipo_app
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,7 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.prototipo_app.databinding.FragmentPostagemBinding
-import com.example.prototipo_app.model.Categoria
+import com.example.prototipo_app.model.Tema
 import com.example.prototipo_app.model.Postagem
 
 
@@ -22,6 +21,7 @@ class PostagemFragment : Fragment() {
     private lateinit var binding: FragmentPostagemBinding
     private val mainViewModel: MainViewModel by activityViewModels()
     private var categoriaSelecionada = 0L
+
     private var postagemSelecionada: Postagem? = null
 
     override fun onCreateView(
@@ -46,7 +46,7 @@ class PostagemFragment : Fragment() {
         return binding.root
     }
 
-    fun spinnerCategoria (listCategoria: List<Categoria>?){
+    fun spinnerCategoria (listCategoria: List<Tema>?){
         if (listCategoria != null){
             binding.SpinnerCategoria.adapter =
                 ArrayAdapter(
@@ -57,7 +57,7 @@ class PostagemFragment : Fragment() {
             binding.SpinnerCategoria.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener{
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                        val selected = binding.SpinnerCategoria.selectedItem as Categoria
+                        val selected = binding.SpinnerCategoria.selectedItem as Tema
 
                         categoriaSelecionada = selected.id
                     }
@@ -77,7 +77,7 @@ class PostagemFragment : Fragment() {
         meta: String,
     ): Boolean{
         return !(
-                (titulo == "" || titulo.length < 3 || titulo.length > 20) ||
+                (titulo == "" || titulo.length < 3 || titulo.length > 50) ||
                         (descricao == "" || descricao.length < 10 || descricao.length > 250) ||
                         (meta == "" || meta.isEmpty())
                 )
@@ -87,7 +87,7 @@ class PostagemFragment : Fragment() {
         val link = binding.textLink.text.toString()
         val descricao = binding.textDescricao.text.toString()
         val meta = binding.textMeta.text.toString()
-        val categoria = Categoria(categoriaSelecionada, null, null, null)
+        val categoria = Tema(categoriaSelecionada, null, null, null)
 
         if (validarCampos(titulo, descricao, meta)){
             val salvar: String

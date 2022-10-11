@@ -6,4 +6,7 @@ interface TaskClickListener {
 
     fun onTaskClickListener(postagem: Postagem)
 
+    fun onDetailClick(postagem: Postagem)
+
+    fun onClickShare()
 }
