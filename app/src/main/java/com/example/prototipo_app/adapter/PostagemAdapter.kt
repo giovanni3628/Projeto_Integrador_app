@@ -9,11 +9,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.prototipo_app.MainViewModel
 import com.example.prototipo_app.databinding.CardFeedBinding
 import com.example.prototipo_app.model.Postagem
 
 class PostagemAdapter(
     val taskClickListener: TaskClickListener,
+    val mainViewModel: MainViewModel,
+    val context: Context,
 ) : RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
 
 
@@ -58,6 +61,10 @@ class PostagemAdapter(
             holder.itemView.setOnClickListener {
                 taskClickListener.onTaskClickListener(postagem)
             }
+
+        holder.binding.buttonDeletar.setOnClickListener {
+            showAlertDialog(postagem.id)
+        }
     }
 
     override fun getItemCount(): Int {

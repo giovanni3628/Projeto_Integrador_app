@@ -87,9 +87,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -97,12 +95,12 @@
         <TextView
             android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:gravity="center"
             android:padding="5dp"
             android:text="TITULO DA POSTAGEM"
             android:textColor="#FFFFFF"
-            android:textSize="34sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
@@ -127,7 +125,7 @@
         <TextView
             android:id="@+id/txtDescricao"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="140dp"
             android:gravity="center"
             android:text="DESCRIÇÃO"
             android:textColor="#FFFFFF"

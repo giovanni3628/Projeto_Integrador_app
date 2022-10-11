@@ -32,7 +32,7 @@ class FeedFragment : Fragment(), TaskClickListener {
         mainViewModel.listPostagem()
 
 
-        val adapter = PostagemAdapter(this)
+        val adapter = PostagemAdapter(this, mainViewModel, requireContext())
 
         binding.recyclerPostagem.layoutManager = LinearLayoutManager(context)
         binding.recyclerPostagem.adapter = adapter

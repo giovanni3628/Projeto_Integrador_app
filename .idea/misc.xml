@@ -9,10 +9,15 @@
         <entry key="app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.248" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13293151855468752" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2221420288085938" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.19504504504504505" />
         <entry key="app/src/main/res/layout/card_feed.xml" value="0.2099099099099099" />
+        <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.13293151855468752" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2099099099099099" />
         <entry key="app/src/main/res/layout/fragment_postagem.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.111" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_splash_screen.xml" value="0.111" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_splash_screen_round.xml" value="0.111" />
       </map>
     </option>
   </component>
@@ -21,5 +26,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.13293151855468752" />
+      </ProjectState>
+    </option>
   </component>
 </project>
