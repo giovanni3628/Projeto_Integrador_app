@@ -36,7 +36,7 @@ class PostagemAdapter(
         val context = holder.itemView.context
         val postagem = listPostagem[position]
         holder.binding.tvTitulo.text = postagem.titulo
-        holder.binding.tvMeta.text = "Meta: R$" + postagem.meta.toString()
+        holder.binding.tvMeta.text = "Meta: R$" + postagem.meta.toString() + ",00"
         holder.binding.tvCategoria.text = postagem.tema.tema
 
 
