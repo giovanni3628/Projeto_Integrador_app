@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">prototipo_app</string>
+    <string name="app_name">Health.me</string>
     <string-array name="Categoria">
         <item>Escolha uma categoria</item>
         <item>Medicamentos</item>
